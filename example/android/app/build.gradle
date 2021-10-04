@@ -33,7 +33,7 @@ android {
 
     defaultConfig {
         applicationId "com.polidea.flutter_ble_lib_example"
-        minSdkVersion 18
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

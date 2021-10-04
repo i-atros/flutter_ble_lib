@@ -5,16 +5,14 @@ class DevicesBlocProvider extends InheritedWidget {
   final DevicesBloc _devicesBloc;
 
   DevicesBlocProvider({
-    Key? key,
-    DevicesBloc? devicesBloc,
-    required Widget child,
+    Key key,
+    DevicesBloc devicesBloc,
+    Widget child,
   })  : _devicesBloc = devicesBloc ?? DevicesBloc(),
         super(key: key, child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
-  static DevicesBloc of(BuildContext context) => context
-      .dependOnInheritedWidgetOfExactType<DevicesBlocProvider>()
-      !._devicesBloc;
+  static DevicesBloc of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<DevicesBlocProvider>()._devicesBloc;
 }

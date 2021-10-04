@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_ble_lib_example/model/ble_device.dart';
 
 import 'devices_bloc.dart';
@@ -17,8 +16,8 @@ class DevicesListScreen extends StatefulWidget {
 }
 
 class DeviceListScreenState extends State<DevicesListScreen> {
-  DevicesBloc? _devicesBloc;
-  StreamSubscription<BleDevice>? _appStateSubscription;
+  DevicesBloc _devicesBloc;
+  StreamSubscription<BleDevice> _appStateSubscription;
   bool _shouldRunOnResume = true;
 
   @override
@@ -84,7 +83,7 @@ class DeviceListScreenState extends State<DevicesListScreen> {
         initialData: devicesBloc.visibleDevices.valueWrapper?.value ?? <BleDevice>[],
         stream: devicesBloc.visibleDevices,
         builder: (context, snapshot) => RefreshIndicator(
-          onRefresh: devicesBloc.refresh ,
+          onRefresh: devicesBloc.refresh,
           child: DevicesList(devicesBloc, snapshot.data),
         ),
       ),
@@ -112,7 +111,7 @@ class DeviceListScreenState extends State<DevicesListScreen> {
 }
 
 class DevicesList extends ListView {
-  DevicesList(DevicesBloc devicesBloc, List<BleDevice>? devices)
+  DevicesList(DevicesBloc devicesBloc, List<BleDevice> devices)
       : super.separated(
             separatorBuilder: (context, index) => Divider(
                   color: Colors.grey[300],
@@ -122,12 +121,10 @@ class DevicesList extends ListView {
             itemCount: devices?.length ?? 0,
             itemBuilder: (context, i) {
               Fimber.d("Build row for $i");
-              return _buildRow(context, devices![i],
-                  _createTapListener(devicesBloc, devices[i]));
+              return _buildRow(context, devices[i], _createTapListener(devicesBloc, devices[i]));
             });
 
-  static DeviceTapListener _createTapListener(
-      DevicesBloc devicesBloc, BleDevice bleDevice) {
+  static DeviceTapListener _createTapListener(DevicesBloc devicesBloc, BleDevice bleDevice) {
     return () {
       Fimber.d("clicked device: ${bleDevice.name}");
       devicesBloc.devicePicker.add(bleDevice);
@@ -144,20 +141,14 @@ class DevicesList extends ListView {
             ),
             backgroundColor: Theme.of(context).accentColor);
       case DeviceCategory.hex:
-        return CircleAvatar(
-            child: CustomPaint(painter: HexPainter(), size: Size(20, 24)),
-            backgroundColor: Colors.black);
+        return CircleAvatar(child: CustomPaint(painter: HexPainter(), size: Size(20, 24)), backgroundColor: Colors.black);
       case DeviceCategory.other:
       default:
-        return CircleAvatar(
-            child: Icon(Icons.bluetooth),
-            backgroundColor: Theme.of(context).primaryColor,
-            foregroundColor: Colors.white);
+        return CircleAvatar(child: Icon(Icons.bluetooth), backgroundColor: Theme.of(context).primaryColor, foregroundColor: Colors.white);
     }
   }
 
-  static Widget _buildRow(BuildContext context, BleDevice device,
-      DeviceTapListener deviceTapListener) {
+  static Widget _buildRow(BuildContext context, BleDevice device, DeviceTapListener deviceTapListener) {
     return ListTile(
       leading: Padding(
         padding: const EdgeInsets.only(top: 8),

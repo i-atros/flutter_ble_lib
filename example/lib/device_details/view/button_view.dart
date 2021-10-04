@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ButtonView extends StatelessWidget {
   final String _text;
-  final void Function()? action;
+  final void Function() action;
 
   ButtonView(this._text, {this.action});
 
