@@ -10,9 +10,7 @@ class LogsContainerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8.0),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(4.0))),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(4.0))),
       child: SizedBox.expand(
         child: Column(
           children: <Widget>[
@@ -55,17 +53,12 @@ class LogsContainerView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: Text(
-                  data?[index].time ?? "",
+                  data[index].time ?? "",
                   style: TextStyle(fontSize: 9),
                 ),
               ),
               Flexible(
-                child: Text(
-                  data?[index].content ?? "",
-                  overflow: TextOverflow.ellipsis,
-                  softWrap: true,
-                  style: TextStyle(fontSize: 13)
-                ),
+                child: Text(data[index].content ?? "", overflow: TextOverflow.ellipsis, softWrap: true, style: TextStyle(fontSize: 13)),
               ),
             ],
           ),

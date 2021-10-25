@@ -13,8 +13,8 @@ class DeviceDetailsView extends StatefulWidget {
 }
 
 class DeviceDetailsViewState extends State<DeviceDetailsView> {
-  DeviceDetailsBloc? _deviceDetailsBloc;
-  StreamSubscription? _appStateSubscription;
+  DeviceDetailsBloc _deviceDetailsBloc;
+  StreamSubscription _appStateSubscription;
 
   bool _shouldRunOnResume = true;
 
@@ -35,7 +35,7 @@ class DeviceDetailsViewState extends State<DeviceDetailsView> {
     Fimber.d("onResume");
     _deviceDetailsBloc?.init();
     _appStateSubscription =
-        _deviceDetailsBloc?.disconnectedDevice.listen((bleDevice) async {
+        _deviceDetailsBloc.disconnectedDevice.listen((bleDevice) async {
       Fimber.d("navigate to details");
       _onPause();
       Navigator.pop(context);
