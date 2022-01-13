@@ -15,7 +15,7 @@
 #import "DescriptorResponseConverter.h"
 #import "ServiceResponseConverter.h"
 
-@import SBMultiplatformBleAdapter;
+@import MultiplatformBleAdapter;
 
 @interface FlutterBleLibPlugin () <BleClientManagerDelegate>
 
