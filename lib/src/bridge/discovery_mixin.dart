@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin DiscoveryMixin on FlutterBLE {
   Future<void> discoverAllServicesAndCharacteristics(

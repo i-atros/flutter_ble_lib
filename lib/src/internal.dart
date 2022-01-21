@@ -1,4 +1,4 @@
-library _internal;
+library internal;
 
 import 'dart:async';
 import 'dart:convert';
@@ -12,8 +12,6 @@ import 'package:flutter_ble_lib/src/_constants.dart';
 import 'package:flutter_ble_lib/src/_containers.dart';
 import 'package:flutter_ble_lib/src/util/_transaction_id_generator.dart';
 import 'package:flutter_ble_lib/src/util/_transformers.dart';
-
-import '_managers_for_classes.dart';
 
 part 'base_entities.dart';
 
@@ -40,3 +38,5 @@ part 'bridge/log_level_mixin.dart';
 part 'bridge/mtu_mixin.dart';
 
 part 'bridge/scanning_mixin.dart';
+
+part 'managers_for_classes.dart';

@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin BluetoothStateMixin on FlutterBLE {
   final Stream<dynamic> _adapterStateChanges =

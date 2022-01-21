@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin DevicesMixin on FlutterBLE {
   Future<List<Peripheral>> knownDevices(

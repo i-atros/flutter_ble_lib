@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 class InternalBleManager
     implements
