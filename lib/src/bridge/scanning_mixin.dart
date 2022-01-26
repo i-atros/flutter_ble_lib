@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin ScanningMixin on FlutterBLE {
   Stream<ScanResult>? _activeScanEvents;

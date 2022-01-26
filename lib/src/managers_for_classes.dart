@@ -1,8 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:flutter_ble_lib/flutter_ble_lib.dart';
-
-import '_internal.dart';
+part of internal;
 
 abstract class ManagerForPeripheral {
   Future<void> connectToPeripheral(

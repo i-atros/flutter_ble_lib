@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin DeviceConnectionMixin on FlutterBLE {
   final Stream<dynamic> _peripheralConnectionStateChanges =

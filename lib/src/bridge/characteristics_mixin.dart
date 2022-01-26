@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin CharacteristicsMixin on FlutterBLE {
   final Stream<dynamic> _characteristicsMonitoringEvents =

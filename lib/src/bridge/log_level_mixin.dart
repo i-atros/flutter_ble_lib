@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin LogLevelMixin on FlutterBLE {
   Future<void> setLogLevel(LogLevel logLevel) async {

@@ -1,4 +1,4 @@
-part of _internal;
+part of internal;
 
 mixin DescriptorsMixin on FlutterBLE {
   Future<DescriptorWithValue> readDescriptorForPeripheral(
